@@ -1,8 +1,11 @@
+import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import se.bott.query.Query;
 import se.bott.query.QueryBuilder;
 import se.bott.query.QueryPart;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +64,13 @@ public class TestQuery {
         queryPartList.add(queryPart5);
         Query query = new Query();
         query.setQuerys(queryPartList);
+
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writeValue(new File("query.json"), query);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         QueryBuilder queryBuilder = new QueryBuilder(query);
 
