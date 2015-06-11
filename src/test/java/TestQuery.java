@@ -72,6 +72,8 @@ public class TestQuery {
             e.printStackTrace();
         }
 
+
+        //
         QueryBuilder queryBuilder = new QueryBuilder(query);
 
         assertEquals("other:drama AND other:horror AND person:olle AND person:nisse OR person:per-unkel OR person:nils-holgersson OR person:gurra OR person:lasse", queryBuilder.getTags());
